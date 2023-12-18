@@ -1,0 +1,603 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+    body {
+    height: 1060px;
+}
+
+#page-container {
+    height: 100%;
+    width: 100%;
+}
+
+#top-container {
+    height: 15%;
+    width: 100%;
+    background-color: #d9d9d9;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: start;
+}
+
+#blue-panel {
+    width: 100%;
+    height:65%;
+    background-color: #1f2937;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+#logo-container {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#title-container {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+#logout-container {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+#light-stripe {
+    width: 100%;
+    height:3%;
+    /* background-color: lightblue; */
+    background-color: teal;
+}
+
+#global-menu-outer-container {
+    width: 100%;
+    height: 32%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: start;
+}
+
+#global-menu-left-pad {
+    width: 0.5%;
+    height: 100%;
+}
+
+#global-menu-inner-container {
+    width: 54.5%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+#global-menu-right-pad {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: end;
+}
+
+#center-container {
+    height: 77%;
+    width: 100%;
+    /* background-color: grey; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+#bottom-container {
+    height: 2%;
+    width: 100%;
+    background-color: grey;
+    margin-top: 10px;
+}
+
+#left-padding-container {
+    height: 100%;
+    width: 5%;
+    /* background-color: #d9d9d9; */
+    border-radius: 5px 5px 5px 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: end;
+    align-items: center;
+}
+
+#side-menu-container {
+    height: 100%;
+    width: 95%;
+    background-color: #d9d9d9;
+    border-radius: 0px 5px 5px 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: start;
+    align-items: center;
+}
+
+.side-menu-button {
+    width: 100%;
+    height: 10%;
+    /* border: #1f2937;
+    border-width: 1px;
+    border-style: solid; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: x-small;
+    text-align: center;
+    color: black;
+}
+
+.side-menu-button:hover {
+    background-color: #999999;
+}
+
+#column-sort-button:hover {
+    background-color: #999999;
+}
+
+.side-menu-flyout {
+    display: none;
+    width: 100px;
+    overflow: visible;
+}
+
+.side-menu-button:hover > .side-menu-flyout {
+    display: block;
+}
+
+#vertical-border {
+    height: 100%;
+    width: 5%;
+    background-color: white;
+}
+
+#right-vertical-border {
+    height: 100%;
+    width: 15%;
+    background-color: white;
+}
+
+#right-padding-container {
+    height: 100%;
+    width: 2%;
+    background-color: #d9d9d9;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: start;
+    align-items: center;
+}
+
+#outer-content-container {
+    height: 100%;
+    width: 93%;
+    /* background-color: darkgrey; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: start;
+    border-radius: 5px 5px 5px 5px;
+}
+
+#contextual-menu-container {
+    width: 100%;
+    height: 5%;
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: start;
+    align-items: center;
+    overflow-y: scroll;
+    border-radius: 5px 5px 0px 0px;
+}
+
+#column-header-container {
+    width: 85%;
+    height: 100%;
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: start;
+    align-items: center;
+}
+
+#inner-content-container {
+    width: 100%;
+    height: 95%;
+    margin: auto;
+    /* background-color: lightgrey; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: start;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+.global-menu-button {
+    width: 16.5%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    /* color: #747474; */
+    color: black;
+}
+
+.global-menu-button:hover {
+    background-color: #999999;
+  }
+
+.column-header {
+    width: 100%;
+    height: 40px;
+    margin-right: 2px;
+    background-color: #BFBFBF;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.list-object-container {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 4px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.shownElementsContainer {
+    width: 100%;
+    height: 35px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.hiddenElementsContainer {
+    width: 100%;
+    height: 0px;
+    background-color: #ababab;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.columnContainer {
+    width: 85%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.column-item {
+    width: 10%;
+    height: 100%;
+    margin-right: 2px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.jobButtonContainer {
+    width: 15%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.expandButton {
+    width: 50%;
+    height: 100%;
+    margin-right: 2px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.collapseButton {
+    width: 50%;
+    height: 100%;
+    margin-right: 2px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.openButton {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.jobButtonText {
+    font-family: sans-serif;
+}
+
+
+/* ---------------------------------- */
+/* ---------------------------------- */
+/* Style for Search form inside modal */
+/* ---------------------------------- */
+/* ---------------------------------- */
+
+ /* The Modal (background) */
+ .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.search-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.feild_div {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+} 
+
+.search-header-container {
+    width: 100%;
+    height: 60px;
+    background-color: #1f2937;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    font-family: sans-serif;
+    align-items: center;
+    color: #d9d9d9;
+}
+
+.feild_div > input[type=text], select {
+    /* width: 100%; */
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.feild_div > button{
+    /* width: 100%; */
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+} 
+
+.feild_div > button:hover {
+    /* width: 100%; */
+    background-color: #80e984;
+} 
+
+/* ---------------------------------- */
+/* ---------------------------------- */
+/* End of Style for Search form       */
+/* ---------------------------------- */
+/* ---------------------------------- */
+
+/* ---------------------------------- */
+/* ---------------------------------- */
+/* Style for filter form inside modal */
+/* ---------------------------------- */
+/* ---------------------------------- */
+
+ /* The Modal (background) */
+ .sort-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.sort-modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.sort-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.feild_div {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+} 
+
+.sort-header-container {
+    width: 100%;
+    height: 60px;
+    background-color: #1f2937;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    font-family: sans-serif;
+    align-items: center;
+    color: #d9d9d9;
+}
+
+.feild_div > input[type=text], select {
+    /* width: 100%; */
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.feild_div > button{
+    /* width: 100%; */
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+} 
+
+.feild_div > button:hover {
+    /* width: 100%; */
+    background-color: #80e984;
+} 
+
+/* ---------------------------------- */
+/* ---------------------------------- */
+/* End of Style for filter form       */
+/* ---------------------------------- */
+/* ---------------------------------- */
