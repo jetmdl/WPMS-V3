@@ -1,4 +1,510 @@
-/// repo location: opt/homebrew/var/www
+/// repo location: /opt/homebrew/var/www
+
+/// ------------------------------------
+/// Create Arrays and Dictionaries 
+/// ------------------------------------
+let infoArray = [];
+let infoDict = {};
+let lipArray = [];
+let lipDict = {};
+let partDict = {};
+let mandArray = [];
+let mandDict = {};
+let dieArray = [];
+let dieDict = {};
+let backerArray = [];
+let backerDict = {};
+let bolArray = [];
+let bolDict = {};
+let nextArray = [];
+let nextDict = {};
+let newJobArray = {};
+let partArray = [];
+
+let lipSoftArray = [];
+let lipSoftDict = {};
+let mandSoftArray = [];
+let mandSoftDict = {};
+let dieSoftArray = [];
+let dieSoftDict = {};
+let backerSoftArray = [];
+let backerSoftDict = {};
+let bolSoftArray = [];
+let bolSoftDict = {};
+
+let lipHardArray = [];
+let lipHardDict = {};
+let mandHardArray = [];
+let mandHardDict = {};
+let dieHardArray = [];
+let dieHardDict = {};
+
+function getDatabase(){
+    infoxhp = new XMLHttpRequest();
+    infoxhp.open('GET', 'get_job_table.php', true);
+    infoxhp.send();
+    infoxhp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            let data = JSON.parse(this.responseText);
+            for (i in data){
+                infoArray = [];
+
+                infoArray.push(data[i].die_number);
+                infoArray.push(data[i].job_type);
+                infoArray.push(data[i].job_diameter);
+                infoArray.push(data[i].job_customer);
+                infoArray.push(data[i].job_status);
+                infoArray.push(data[i].lip_required);
+                infoArray.push(data[i].mand_required);
+                infoArray.push(data[i].die_required);
+                infoArray.push(data[i].backer_required);
+                infoArray.push(data[i].bolster_required);
+                infoArray.push(data[i].next_stage);
+                infoArray.push(data[i].scrap_notes);
+                infoArray.push(data[i].part_required);
+
+                infoDict[data[i].work_order] = infoArray;
+            }
+        }
+    };
+
+    partxhp = new XMLHttpRequest();
+    partxhp.open('GET', 'get_part_table.php', true);
+    partxhp.send();
+    partxhp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            let data = JSON.parse(this.responseText);
+            for (i in data){
+                partArray = [];
+
+                partArray.push(data[i].design_start);
+                partArray.push(data[i].design_finish);
+                partArray.push(data[i].model_start);
+                partArray.push(data[i].model_finish);
+                partArray.push(data[i].prog_start);
+                partArray.push(data[i].prog_finish);
+                partArray.push(data[i].turning_start);
+                partArray.push(data[i].turning_finish);
+                partArray.push(data[i].soft_mac_start);
+                partArray.push(data[i].soft_mac_finish);
+                partArray.push(data[i].heat_treat_send);
+                partArray.push(data[i].heat_treat_back);
+                partArray.push(data[i].hard_mac_start);
+                partArray.push(data[i].hard_mac_finish);
+                partArray.push(data[i].ramspark_start);
+                partArray.push(data[i].ramspark_finish);
+                partArray.push(data[i].section_mill_start);
+                partArray.push(data[i].section_mill_finish);
+                partArray.push(data[i].wirespark_start);
+                partArray.push(data[i].wirespark_finish);
+                partArray.push(data[i].finishing_start);
+                partArray.push(data[i].finishing_finish);
+                partArray.push(data[i].packing_start);
+                partArray.push(data[i].packing_finish);
+
+                partDict[data[i].work_order] = partArray;
+                
+            }
+        }
+    };
+
+    lipxhp = new XMLHttpRequest();
+    lipxhp.open('GET', 'get_lip_table.php', true);
+    lipxhp.send();
+    lipxhp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            let data = JSON.parse(this.responseText);
+            for (i in data){
+                lipArray = [];
+
+                lipArray.push(data[i].design_start);
+                lipArray.push(data[i].design_finish);
+                lipArray.push(data[i].model_start);
+                lipArray.push(data[i].model_finish);
+                lipArray.push(data[i].prog_start);
+                lipArray.push(data[i].prog_finish);
+                lipArray.push(data[i].turning_start);
+                lipArray.push(data[i].turning_finish);
+                lipArray.push(data[i].soft_mac_start);
+                lipArray.push(data[i].soft_mac_finish);
+                lipArray.push(data[i].heat_treat_send);
+                lipArray.push(data[i].heat_treat_back);
+                lipArray.push(data[i].hard_mac_start);
+                lipArray.push(data[i].hard_mac_finish);
+                lipArray.push(data[i].ramspark_start);
+                lipArray.push(data[i].ramspark_finish);
+                lipArray.push(data[i].section_mill_start);
+                lipArray.push(data[i].section_mill_finish);
+                lipArray.push(data[i].wirespark_start);
+                lipArray.push(data[i].wirespark_finish);
+                lipArray.push(data[i].finishing_start);
+                lipArray.push(data[i].finishing_finish);
+                lipArray.push(data[i].packing_start);
+                lipArray.push(data[i].packing_finish);
+
+                lipDict[data[i].work_order] = lipArray;
+            }
+        }
+    };
+
+    mandxhp = new XMLHttpRequest();
+    mandxhp.open('GET', 'get_mand_table.php', true);
+    mandxhp.send();
+    mandxhp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            let data = JSON.parse(this.responseText);
+            for (i in data){
+                mandArray = [];
+
+                mandArray.push(data[i].design_start);
+                mandArray.push(data[i].design_finish);
+                mandArray.push(data[i].model_start);
+                mandArray.push(data[i].model_finish);
+                mandArray.push(data[i].prog_start);
+                mandArray.push(data[i].prog_finish);
+                mandArray.push(data[i].turning_start);
+                mandArray.push(data[i].turning_finish);
+                mandArray.push(data[i].soft_mac_start);
+                mandArray.push(data[i].soft_mac_finish);
+                mandArray.push(data[i].heat_treat_send);
+                mandArray.push(data[i].heat_treat_back);
+                mandArray.push(data[i].hard_mac_start);
+                mandArray.push(data[i].hard_mac_finish);
+                mandArray.push(data[i].ramspark_start);
+                mandArray.push(data[i].ramspark_finish);
+                mandArray.push(data[i].section_mill_start);
+                mandArray.push(data[i].section_mill_finish);
+                mandArray.push(data[i].wirespark_start);
+                mandArray.push(data[i].wirespark_finish);
+                mandArray.push(data[i].finishing_start);
+                mandArray.push(data[i].finishing_finish);
+                mandArray.push(data[i].packing_start);
+                mandArray.push(data[i].packing_finish);
+
+                mandDict[data[i].work_order] = mandArray;
+            }
+        }
+    };
+
+    diexhp = new XMLHttpRequest();
+    diexhp.open('GET', 'get_die_table.php', true);
+    diexhp.send();
+    diexhp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            let data = JSON.parse(this.responseText);
+            for (i in data){
+                dieArray = [];
+
+                dieArray.push(data[i].design_start);
+                dieArray.push(data[i].design_finish);
+                dieArray.push(data[i].model_start);
+                dieArray.push(data[i].model_finish);
+                dieArray.push(data[i].prog_start);
+                dieArray.push(data[i].prog_finish);
+                dieArray.push(data[i].turning_start);
+                dieArray.push(data[i].turning_finish);
+                dieArray.push(data[i].soft_mac_start);
+                dieArray.push(data[i].soft_mac_finish);
+                dieArray.push(data[i].heat_treat_send);
+                dieArray.push(data[i].heat_treat_back);
+                dieArray.push(data[i].hard_mac_start);
+                dieArray.push(data[i].hard_mac_finish);
+                dieArray.push(data[i].ramspark_start);
+                dieArray.push(data[i].ramspark_finish);
+                dieArray.push(data[i].section_mill_start);
+                dieArray.push(data[i].section_mill_finish);
+                dieArray.push(data[i].wirespark_start);
+                dieArray.push(data[i].wirespark_finish);
+                dieArray.push(data[i].finishing_start);
+                dieArray.push(data[i].finishing_finish);
+                dieArray.push(data[i].packing_start);
+                dieArray.push(data[i].packing_finish);
+
+                dieDict[data[i].work_order] = dieArray;
+            }
+        }
+    };
+
+    backerxhp = new XMLHttpRequest();
+    backerxhp.open('GET', 'get_backer_table.php', true);
+    backerxhp.send();
+    backerxhp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            let data = JSON.parse(this.responseText);
+            for (i in data){
+                backerArray = [];
+
+                backerArray.push(data[i].design_start);
+                backerArray.push(data[i].design_finish);
+                backerArray.push(data[i].model_start);
+                backerArray.push(data[i].model_finish);
+                backerArray.push(data[i].prog_start);
+                backerArray.push(data[i].prog_finish);
+                backerArray.push(data[i].turning_start);
+                backerArray.push(data[i].turning_finish);
+                backerArray.push(data[i].soft_mac_start);
+                backerArray.push(data[i].soft_mac_finish);
+                backerArray.push(data[i].heat_treat_send);
+                backerArray.push(data[i].heat_treat_back);
+                backerArray.push(data[i].hard_mac_start);
+                backerArray.push(data[i].hard_mac_finish);
+                backerArray.push(data[i].ramspark_start);
+                backerArray.push(data[i].ramspark_finish);
+                backerArray.push(data[i].section_mill_start);
+                backerArray.push(data[i].section_mill_finish);
+                backerArray.push(data[i].wirespark_start);
+                backerArray.push(data[i].wirespark_finish);
+                backerArray.push(data[i].finishing_start);
+                backerArray.push(data[i].finishing_finish);
+                backerArray.push(data[i].packing_start);
+                backerArray.push(data[i].packing_finish);
+
+                backerDict[data[i].work_order] = backerArray;
+            }
+        }
+    };
+
+    bolxhp = new XMLHttpRequest();
+    bolxhp.open('GET', 'get_bolster_table.php', true);
+    bolxhp.send();
+    bolxhp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            let data = JSON.parse(this.responseText);
+            for (i in data){
+                bolArray = [];
+
+                bolArray.push(data[i].design_start);
+                bolArray.push(data[i].design_finish);
+                bolArray.push(data[i].model_start);
+                bolArray.push(data[i].model_finish);
+                bolArray.push(data[i].prog_start);
+                bolArray.push(data[i].prog_finish);
+                bolArray.push(data[i].turning_start);
+                bolArray.push(data[i].turning_finish);
+                bolArray.push(data[i].soft_mac_start);
+                bolArray.push(data[i].soft_mac_finish);
+                bolArray.push(data[i].heat_treat_send);
+                bolArray.push(data[i].heat_treat_back);
+                bolArray.push(data[i].hard_mac_start);
+                bolArray.push(data[i].hard_mac_finish);
+                bolArray.push(data[i].ramspark_start);
+                bolArray.push(data[i].ramspark_finish);
+                bolArray.push(data[i].section_mill_start);
+                bolArray.push(data[i].section_mill_finish);
+                bolArray.push(data[i].wirespark_start);
+                bolArray.push(data[i].wirespark_finish);
+                bolArray.push(data[i].finishing_start);
+                bolArray.push(data[i].finishing_finish);
+                bolArray.push(data[i].packing_start);
+                bolArray.push(data[i].packing_finish);
+
+                bolDict[data[i].work_order] = bolArray;
+            }
+        }
+    };
+
+    nextxhp = new XMLHttpRequest();
+    nextxhp.open('GET', 'get_next_table.php', true);
+    nextxhp.send();
+    nextxhp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            let data = JSON.parse(this.responseText);
+            for (i in data){
+                nextArray = [];
+
+                nextArray.push(data[i].lip);
+                nextArray.push(data[i].mandrel);
+                nextArray.push(data[i].dieplate);
+                nextArray.push(data[i].backer);
+                nextArray.push(data[i].bolster);
+
+                nextDict[data[i].work_order] = nextArray;
+            }
+        }
+    };
+
+    lipsoftxhp = new XMLHttpRequest();
+    lipsoftxhp.open('GET', 'get_lip_soft_table.php', true);
+    lipsoftxhp.send();
+    lipsoftxhp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            let data = JSON.parse(this.responseText);
+            for (i in data){
+                lipSoftArray = [];
+
+                lipSoftArray.push(data[i].lip_front_start);
+                lipSoftArray.push(data[i].lip_front_finish);
+                lipSoftArray.push(data[i].lip_back_start);
+                lipSoftArray.push(data[i].lip_back_finish);
+                lipSoftArray.push(data[i].lip_front_machine);
+                lipSoftArray.push(data[i].lip_back_machine);
+                lipSoftArray.push(data[i].mac_status);
+
+                lipSoftDict[data[i].work_order] = lipSoftArray;
+            }
+        }
+    };
+
+    mandsoftxhp = new XMLHttpRequest();
+    mandsoftxhp.open('GET', 'get_mand_soft_table.php', true);
+    mandsoftxhp.send();
+    mandsoftxhp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            let data = JSON.parse(this.responseText);
+            for (i in data){
+                mandSoftArray = [];
+
+                mandSoftArray.push(data[i].port_front_start);
+                mandSoftArray.push(data[i].port_front_finish);
+                mandSoftArray.push(data[i].port_back_start);
+                mandSoftArray.push(data[i].port_back_finish);
+                mandSoftArray.push(data[i].port_front_machine);
+                mandSoftArray.push(data[i].port_back_machine);
+                mandSoftArray.push(data[i].mac_status);
+
+                mandSoftDict[data[i].work_order] = mandSoftArray;
+            }
+        }
+    };
+
+    diesoftxhp = new XMLHttpRequest();
+    diesoftxhp.open('GET', 'get_die_soft_table.php', true);
+    diesoftxhp.send();
+    diesoftxhp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            let data = JSON.parse(this.responseText);
+            for (i in data){
+                dieSoftArray = [];
+
+                dieSoftArray.push(data[i].die_bearing_start);
+                dieSoftArray.push(data[i].die_bearing_finish);
+                dieSoftArray.push(data[i].die_backmill_start);
+                dieSoftArray.push(data[i].die_backmill_finish);
+                dieSoftArray.push(data[i].die_bearing_machine);
+                dieSoftArray.push(data[i].die_backmill_machine);
+                dieSoftArray.push(data[i].mac_status);
+
+                dieSoftDict[data[i].work_order] = dieSoftArray;
+            }
+        }
+    };
+
+    backersoftxhp = new XMLHttpRequest();
+    backersoftxhp.open('GET', 'get_backer_soft_table.php', true);
+    backersoftxhp.send();
+    backersoftxhp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            let data = JSON.parse(this.responseText);
+            for (i in data){
+                backerSoftArray = [];
+
+                backerSoftArray.push(data[i].backer_front_start);
+                backerSoftArray.push(data[i].backer_front_finish);
+                backerSoftArray.push(data[i].backer_back_start);
+                backerSoftArray.push(data[i].backer_back_finish);
+                backerSoftArray.push(data[i].backer_front_machine);
+                backerSoftArray.push(data[i].backer_back_machine);
+                backerSoftArray.push(data[i].mac_status);
+
+                backerSoftDict[data[i].work_order] = backerSoftArray;
+            }
+        }
+    };
+
+    bolsoftxhp = new XMLHttpRequest();
+    bolsoftxhp.open('GET', 'get_bol_soft_table.php', true);
+    bolsoftxhp.send();
+    bolsoftxhp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            let data = JSON.parse(this.responseText);
+            for (i in data){
+                bolSoftArray = [];
+
+                bolSoftArray.push(data[i].bol_front_start);
+                bolSoftArray.push(data[i].bol_front_finish);
+                bolSoftArray.push(data[i].bol_back_start);
+                bolSoftArray.push(data[i].bol_back_finish);
+                bolSoftArray.push(data[i].bol_front_machine);
+                bolSoftArray.push(data[i].bol_back_machine);
+                bolSoftArray.push(data[i].mac_status);
+
+                bolSoftDict[data[i].work_order] = bolSoftArray;
+            }
+        }
+    };
+
+    liphardxhp = new XMLHttpRequest();
+    liphardxhp.open('GET', 'get_lip_hard_table.php', true);
+    liphardxhp.send();
+    liphardxhp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            let data = JSON.parse(this.responseText);
+            for (i in data){
+                lipHardArray = [];
+
+                lipHardArray.push(data[i].lip_front_start);
+                lipHardArray.push(data[i].lip_front_finish);
+                lipHardArray.push(data[i].lip_back_start);
+                lipHardArray.push(data[i].lip_back_finish);
+                lipHardArray.push(data[i].lip_front_machine);
+                lipHardArray.push(data[i].lip_back_machine);
+                lipHardArray.push(data[i].mac_status);
+
+                lipHardDict[data[i].work_order] = lipHardArray;
+            }
+        }
+    };
+
+    mandhardxhp = new XMLHttpRequest();
+    mandhardxhp.open('GET', 'get_mand_hard_table.php', true);
+    mandhardxhp.send();
+    mandhardxhp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            let data = JSON.parse(this.responseText);
+            for (i in data){
+                mandHardArray = [];
+
+                mandHardArray.push(data[i].port_hard_start);
+                mandHardArray.push(data[i].port_hard_finish);
+                mandHardArray.push(data[i].port_polish_start);
+                mandHardArray.push(data[i].port_polish_finish);
+                mandHardArray.push(data[i].port_hard_machine);
+                mandHardArray.push(data[i].port_polish_machine);
+                mandHardArray.push(data[i].mac_status);
+
+                mandHardDict[data[i].work_order] = mandHardArray;
+            }
+        }
+    };
+
+    diehardxhp = new XMLHttpRequest();
+    diehardxhp.open('GET', 'get_die_hard_table.php', true);
+    diehardxhp.send();
+    diehardxhp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            let data = JSON.parse(this.responseText);
+            for (i in data){
+                dieHardArray = [];
+
+                dieHardArray.push(data[i].die_front_start);
+                dieHardArray.push(data[i].die_front_finish);
+                dieHardArray.push(data[i].die_back_start);
+                dieHardArray.push(data[i].die_back_finish);
+                dieHardArray.push(data[i].die_front_machine);
+                dieHardArray.push(data[i].die_back_machine);
+                dieHardArray.push(data[i].mac_status);
+
+                dieHardDict[data[i].work_order] = dieHardArray;
+            }
+        }
+    };
+
+    console.log("mand:");
+    console.log(mandHardDict)
+
+
+}
+
 function removeElementsOuterContent(){
     const el = document.getElementById('outer-content-container');
     while(el.firstChild) el.removeChild(el.firstChild);
@@ -549,6 +1055,32 @@ function createJobTable(anId) {
 
     // tempDisplay.innerHTML = anId;
 }
+
+getDatabase();
+
+/// ------------------------------------
+/// Pause operation to allow Dictionaries
+/// to be populated before the application
+/// tries to render list of elements. 
+/// ------------------------------------
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  
+  async function demo() {
+    // console.log('Taking a break...');
+    await sleep(500);
+    // console.log('Two seconds later, showing sleep in a loop...');
+  
+    // Sleep in loop
+    for (let i = 0; i < 2; i++) {
+      if (i === 3)
+        await sleep(500);
+    //   console.log(i);
+    }
+    insertOngoingElements();
+}
+demo();
 
 insertJobElements();
 addExpandListeners();
