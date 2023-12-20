@@ -1,3 +1,4 @@
+/// repo location: opt/homebrew/var/www
 function removeElementsOuterContent(){
     const el = document.getElementById('outer-content-container');
     while(el.firstChild) el.removeChild(el.firstChild);
