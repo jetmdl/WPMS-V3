@@ -501,8 +501,26 @@ function getDatabase(){
 
     console.log("mand:");
     console.log(mandHardDict)
+}
 
+// Get length of infoDict
+function getNumberOfJobs(){
+    let count = 0;
+    for (let i in infoDict) {
+        if (infoDict.hasOwnProperty(i)){
+            count++;
+        }
+    }
+    return(count);
+}
 
+//Creates an array of keys for infoDict dict
+function createKeyArray(){
+    let keyArray = [];
+    for (let key in infoDict){
+        keyArray.push(key);
+        return(keyArray);
+    }
 }
 
 function removeElementsOuterContent(){
