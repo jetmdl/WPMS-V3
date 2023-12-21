@@ -523,8 +523,8 @@ function createKeyArray(){
     let keyArray = [];
     for (let key in infoDict){
         keyArray.push(key);
-        return(keyArray);
     }
+    return(keyArray);
 }
 
 function removeElementsOuterContent(){
@@ -550,103 +550,129 @@ function removeElementsFromDefined(anId){
 }
 
 function insertJobElements(){
+    getDatabase();
+
+    let amount = getNumberOfJobs();
+    let keyArray = [];
+    let aKey = '';
     let colourChooser = 0;
     let elementColour = "#E8E9EC;";
-    for (let i=0; i<=100; i++){
+    let aClass = '';
+
+    for (let key in infoDict){
+        keyArray.push(key);
+    }
+
+    for (let i=0; i<amount; i++){
+        aKey = keyArray[i];
         colourChooser += 1;
         const div = document.createElement("div");
-        div.id = i;
+        div.id = aKey;
         div.className = "list-object-container ";
         div.style = "background-color: white;";
         document.getElementById("inner-content-container").appendChild(div);  
 
         const shownElementsContainer = document.createElement("div");
-        shownElementsContainer.id = "shownElementsContainer" + i;
+        shownElementsContainer.id = "shownElementsContainer" + aKey;
         shownElementsContainer.className = "shownElementsContainer";
         //shownElementsContainer.style = "background-color: lightgrey;";
-        document.getElementById(i).appendChild(shownElementsContainer);  
+        document.getElementById(aKey).appendChild(shownElementsContainer);  
 
         const columnContainer = document.createElement("div");
-        columnContainer.id = "columnContainer" + i;
+        columnContainer.id = "columnContainer" + aKey;
         columnContainer.className = "columnContainer";
         //columnContainer.style = "background-color: lightgrey;";
         document.getElementById(shownElementsContainer.id).appendChild(columnContainer); 
 
             if(colourChooser % 2 === 0){
-                elementColour = "background-color: #D9D9D9;";
+                //elementColour = "background-color: #D9D9D9;";
+                aClass = "column-item-light";
             }
             else{
-                elementColour = "background-color: #E8E9EC;";
+                //elementColour = "background-color: #E8E9EC;";
+                aClass = "column-item-dark";
             }
 
             const WoColumn = document.createElement("div");
-            WoColumn.id = "WoColumn" + i;
-            WoColumn.className = "column-item";
-            WoColumn.style = elementColour;
+            WoColumn.id = "WoColumn" + aKey;
+            WoColumn.className = aClass;
+            // WoColumn.style = elementColour;
             document.getElementById(columnContainer.id).appendChild(WoColumn); 
+            let textnode1 = document.createTextNode(aKey);
+            document.getElementById("WoColumn" + aKey).appendChild(textnode1);
 
             const dieColumn = document.createElement("div");
-            dieColumn.id = "dieColumn" + i;
-            dieColumn.className = "column-item";
-            dieColumn.style = elementColour;
+            dieColumn.id = "dieColumn" + aKey;
+            dieColumn.className = aClass;
+            // dieColumn.style = elementColour;
             document.getElementById(columnContainer.id).appendChild(dieColumn); 
-
-            const custColumn = document.createElement("div");
-            custColumn.id = "custColumn" + i;
-            custColumn.className = "column-item";
-            custColumn.style = elementColour;
-            document.getElementById(columnContainer.id).appendChild(custColumn); 
+            let textnode2 = document.createTextNode(infoDict[aKey][0]);
+            document.getElementById("dieColumn" + aKey).appendChild(textnode2);
 
             const typeColumn = document.createElement("div");
-            typeColumn.id = "typeColumn" + i;
-            typeColumn.className = "column-item";
-            typeColumn.style = elementColour;
+            typeColumn.id = "typeColumn" + aKey;
+            typeColumn.className = aClass;
+            // typeColumn.style = elementColour;
             document.getElementById(columnContainer.id).appendChild(typeColumn); 
+            let textnode3 = document.createTextNode(infoDict[aKey][1]);
+            document.getElementById("typeColumn" + aKey).appendChild(textnode3); 
 
             const diaColumn = document.createElement("div");
-            diaColumn.id = "diaColumn" + i;
-            diaColumn.className = "column-item";
-            diaColumn.style = elementColour;
+            diaColumn.id = "diaColumn" + aKey;
+            diaColumn.className = aClass;
+            // diaColumn.style = elementColour;
             document.getElementById(columnContainer.id).appendChild(diaColumn); 
+            let textnode4 = document.createTextNode(infoDict[aKey][2]);
+            document.getElementById("diaColumn" + aKey).appendChild(textnode4); 
+
+            const custColumn = document.createElement("div");
+            custColumn.id = "custColumn" + aKey;
+            custColumn.className = aClass;
+            // custColumn.style = elementColour;
+            document.getElementById(columnContainer.id).appendChild(custColumn); 
+            let textnode5 = document.createTextNode(infoDict[aKey][3]);
+            document.getElementById("custColumn" + aKey).appendChild(textnode5); 
 
             const orderNoColumn = document.createElement("div");
-            orderNoColumn.id = "orderNoColumn" + i;
-            orderNoColumn.className = "column-item";
-            orderNoColumn.style = elementColour;
+            orderNoColumn.id = "orderNoColumn" + aKey;
+            orderNoColumn.className = aClass;
+            // orderNoColumn.style = elementColour;
             document.getElementById(columnContainer.id).appendChild(orderNoColumn); 
 
             const startDateColumn = document.createElement("div");
-            startDateColumn.id = "startDateColumn" + i;
-            startDateColumn.className = "column-item";
-            startDateColumn.style = elementColour;
+            startDateColumn.id = "startDateColumn" + aKey;
+            startDateColumn.className = aClass;
+            // startDateColumn.style = elementColour;
             document.getElementById(columnContainer.id).appendChild(startDateColumn); 
 
             const finishDateColumn = document.createElement("div");
-            finishDateColumn.id = "finishDateColumn" + i;
-            finishDateColumn.className = "column-item";
-            finishDateColumn.style = elementColour;
+            finishDateColumn.id = "finishDateColumn" + aKey;
+            finishDateColumn.className = aClass;
+            // finishDateColumn.style = elementColour;
             document.getElementById(columnContainer.id).appendChild(finishDateColumn); 
 
             const onTimeDateColumn = document.createElement("div");
-            onTimeDateColumn.id = "onTimeDateColumn" + i;
-            onTimeDateColumn.className = "column-item";
-            onTimeDateColumn.style = elementColour;
+            onTimeDateColumn.id = "onTimeDateColumn" + aKey;
+            onTimeDateColumn.className = aClass;
+            // onTimeDateColumn.style = elementColour;
             document.getElementById(columnContainer.id).appendChild(onTimeDateColumn); 
 
             const statusColumn = document.createElement("div");
-            statusColumn.id = "statusColumn" + i;
-            statusColumn.className = "column-item";
-            statusColumn.style = elementColour;
+            statusColumn.id = "statusColumn" + aKey;
+            statusColumn.className = aClass;
+            // statusColumn.style = elementColour;
             document.getElementById(columnContainer.id).appendChild(statusColumn); 
+            let textnode10 = document.createTextNode(infoDict[aKey][4]);
+            document.getElementById("statusColumn" + aKey).appendChild(textnode10); 
 
         const jobButtonContainer = document.createElement("div");
-        jobButtonContainer.id = "jobButtonContainer" + i;
+        jobButtonContainer.id = "jobButtonContainer" + aKey;
         jobButtonContainer.className = "jobButtonContainer";
         jobButtonContainer.style = "background-color: lightgrey;";
         document.getElementById(shownElementsContainer.id).appendChild(jobButtonContainer); 
 
             const expandButton = document.createElement("div");
-            expandButton.id = "expandButton" + i;
+            expandButton.id = "expandButton" + aKey;
             expandButton.className = "expandButton";
             expandButton.style = "background-color: #999999;";
             document.getElementById(jobButtonContainer.id).appendChild(expandButton); 
@@ -660,7 +686,7 @@ function insertJobElements(){
                 //<a href="https://www.flaticon.com/free-icons/up-arrow" title="up arrow icons">Up arrow icons created by Roundicons - Flaticon</a>
 
             const openButton = document.createElement("div");
-            openButton.id = "openButton" + i;
+            openButton.id = "openButton" + aKey;
             openButton.className = "openButton";
             openButton.style = "background-color: #999999;";
             document.getElementById(jobButtonContainer.id).appendChild(openButton); 
@@ -674,12 +700,14 @@ function insertJobElements(){
 
 
         const hiddenElementsContainer = document.createElement("div");
-        hiddenElementsContainer.id = "hiddenElementsContainer" + i;
+        hiddenElementsContainer.id = "hiddenElementsContainer" + aKey;
         hiddenElementsContainer.className = "hiddenElementsContainer";
         hiddenElementsContainer.style = "background-color: pink;";
-        document.getElementById(i).appendChild(hiddenElementsContainer);  
+        document.getElementById(aKey).appendChild(hiddenElementsContainer);  
 
     }
+    addExpandListeners();
+    addOpenListeners();
 }
 
 function addExpandListeners(){
@@ -1100,12 +1128,11 @@ function sleep(ms) {
         await sleep(500);
     //   console.log(i);
     }
-    insertOngoingElements();
+    insertJobElements();
 }
 demo();
 
-insertJobElements();
-addExpandListeners();
-addOpenListeners();
+//insertJobElements();
+
 addSearchModalListner()
 addSortModalListner();
