@@ -551,6 +551,7 @@ function removeElementsFromDefined(anId){
 
 //Create a dictionary with ongoing jobs.
 function createOngoingDict(){
+    insertDict = {};
     for(let key in infoDict){
         if(infoDict[key][4]==="Ongoing"){
             insertDict[key] = infoDict[key];
@@ -561,6 +562,7 @@ function createOngoingDict(){
 
 //Create a dictionary with complete jobs.
 function createCompleteDict(){
+    insertDict = {};
     for(let key in infoDict){
         if(infoDict[key][4]==="Complete"){
             insertDict[key] = infoDict[key];
@@ -571,6 +573,7 @@ function createCompleteDict(){
 
 //Create a dictionary with hollow jobs.
 function createHollowDict(){
+    insertDict = {};
     for(let key in infoDict){
         if(infoDict[key][1]==="Hollow"){
             insertDict[key] = infoDict[key];
@@ -581,6 +584,7 @@ function createHollowDict(){
 
 //Create a dictionary with Flat jobs.
 function createFlatDict(){
+    insertDict = {};
     for(let key in infoDict){
         if(infoDict[key][1]==="Flat"){
             insertDict[key] = infoDict[key];
@@ -777,6 +781,138 @@ function addOpenListeners(){
     for (let i = 0; i < clickedIdLight.length; i++){
         clickedIdLight[i].addEventListener('click', openGetClickedId);
     }
+}
+
+function addOngoingListeners(){
+    document.getElementById("ongoing-button").addEventListener('click', addOngoingElements);
+}
+
+function addOngoingElements(){
+    getDatabase();
+    removeElementsFromDefined("inner-content-container");
+    /// ------------------------------------
+    /// Pause operation to allow Dictionaries
+    /// to be populated before the application
+    /// tries to render list of elements. 
+    /// ------------------------------------
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    
+    async function demo() {
+        // console.log('Taking a break...');
+        await sleep(500);
+        // console.log('Two seconds later, showing sleep in a loop...');
+    
+        // Sleep in loop
+        for (let i = 0; i < 2; i++) {
+        if (i === 3)
+            await sleep(500);
+        //   console.log(i);
+        }
+        let ongoingDict = createOngoingDict();
+        insertJobElements(ongoingDict);
+    }
+    demo();
+}
+
+function addCompleteListeners(){
+    document.getElementById("complete-button").addEventListener('click', addCompleteElements);
+}
+
+function addCompleteElements(){
+    getDatabase();
+    removeElementsFromDefined("inner-content-container");
+    /// ------------------------------------
+    /// Pause operation to allow Dictionaries
+    /// to be populated before the application
+    /// tries to render list of elements. 
+    /// ------------------------------------
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    
+    async function demo() {
+        // console.log('Taking a break...');
+        await sleep(500);
+        // console.log('Two seconds later, showing sleep in a loop...');
+    
+        // Sleep in loop
+        for (let i = 0; i < 2; i++) {
+        if (i === 3)
+            await sleep(500);
+        //   console.log(i);
+        }
+        let completeDict = createCompleteDict();
+        insertJobElements(completeDict);
+    }
+    demo();
+}
+
+function addFlatListeners(){
+    document.getElementById("flat-button").addEventListener('click', addFlatElements);
+}
+
+function addFlatElements(){
+    getDatabase();
+    removeElementsFromDefined("inner-content-container");
+    /// ------------------------------------
+    /// Pause operation to allow Dictionaries
+    /// to be populated before the application
+    /// tries to render list of elements. 
+    /// ------------------------------------
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    
+    async function demo() {
+        // console.log('Taking a break...');
+        await sleep(500);
+        // console.log('Two seconds later, showing sleep in a loop...');
+    
+        // Sleep in loop
+        for (let i = 0; i < 2; i++) {
+        if (i === 3)
+            await sleep(500);
+        //   console.log(i);
+        }
+        let flatDict = createFlatDict();
+        insertJobElements(flatDict);
+    }
+    demo();
+}
+
+function addHollowListeners(){
+    document.getElementById("hollow-button").addEventListener('click', addHollowElements);
+}
+
+function addHollowElements(){
+    getDatabase();
+    removeElementsFromDefined("inner-content-container");
+    /// ------------------------------------
+    /// Pause operation to allow Dictionaries
+    /// to be populated before the application
+    /// tries to render list of elements. 
+    /// ------------------------------------
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    
+    async function demo() {
+        // console.log('Taking a break...');
+        await sleep(500);
+        // console.log('Two seconds later, showing sleep in a loop...');
+    
+        // Sleep in loop
+        for (let i = 0; i < 2; i++) {
+        if (i === 3)
+            await sleep(500);
+        //   console.log(i);
+        }
+        let hollowDict = createHollowDict();
+        insertJobElements(hollowDict);
+    }
+    demo();
 }
 
 function expandGetClickedId(){
@@ -1192,3 +1328,8 @@ demo();
 
 addSearchModalListner()
 addSortModalListner();
+addOngoingListeners()
+addCompleteListeners();
+addFlatListeners();
+addHollowListeners();
+
