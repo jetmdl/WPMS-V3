@@ -39,6 +39,8 @@ let mandHardDict = {};
 let dieHardArray = [];
 let dieHardDict = {};
 
+let insertDict = {};
+
 /// ------------------------------------
 /// Retrive database and pass date to 
 /// Arrays and Dictionaries 
@@ -503,8 +505,6 @@ function getDatabase(){
         }
     };
 
-    console.log("mand:");
-    console.log(mandHardDict)
 }
 
 // Get length of infoDict
@@ -549,20 +549,75 @@ function removeElementsFromDefined(anId){
     }
 }
 
-function insertJobElements(){
+//Create a dictionary with ongoing jobs.
+function createOngoingDict(){
+    for(let key in infoDict){
+        if(infoDict[key][4]==="Ongoing"){
+            insertDict[key] = infoDict[key];
+        }
+    }
+    return insertDict;
+}
+
+//Create a dictionary with complete jobs.
+function createCompleteDict(){
+    for(let key in infoDict){
+        if(infoDict[key][4]==="Complete"){
+            insertDict[key] = infoDict[key];
+        }
+    }
+    return insertDict;
+}
+
+//Create a dictionary with hollow jobs.
+function createHollowDict(){
+    for(let key in infoDict){
+        if(infoDict[key][1]==="Hollow"){
+            insertDict[key] = infoDict[key];
+        }
+    }
+    return insertDict;
+}
+
+//Create a dictionary with Flat jobs.
+function createFlatDict(){
+    for(let key in infoDict){
+        if(infoDict[key][1]==="Flat"){
+            insertDict[key] = infoDict[key];
+        }
+    }
+    return insertDict;
+}
+
+function insertJobElements(aDict){
     getDatabase();
 
-    let amount = getNumberOfJobs();
+    // Set insertInfDict (the internal dictionary output to job elements) to the sorted/filtered dictionary passed to the fuction.
+    let insertInfoDict = aDict;
+    let amount = 0;
+
+    // Count the elements in the dictionary (this could be removed with refactoring by changing the loop that inserts the elements
+    // to a "for in" style).
+    for (let i in infoDict) {
+        if (insertInfoDict.hasOwnProperty(i)){
+            amount++;
+        }
+    }
+
+    // Initialise the variables and arrays for the function.
     let keyArray = [];
     let aKey = '';
     let colourChooser = 0;
     let elementColour = "#E8E9EC;";
     let aClass = '';
 
-    for (let key in infoDict){
+    // Generate an array of keys from the sorted Dictionary, these are then used to get the value arrays from the sorted dicionary 
+    // as they are inserted into the job list. 
+    for (let key in insertInfoDict){
         keyArray.push(key);
     }
 
+    // Iterate through the sorted array and for each element, create a row container and insert all of the column divs into it. 
     for (let i=0; i<amount; i++){
         aKey = keyArray[i];
         colourChooser += 1;
@@ -606,7 +661,7 @@ function insertJobElements(){
             dieColumn.className = aClass;
             // dieColumn.style = elementColour;
             document.getElementById(columnContainer.id).appendChild(dieColumn); 
-            let textnode2 = document.createTextNode(infoDict[aKey][0]);
+            let textnode2 = document.createTextNode(insertInfoDict[aKey][0]);
             document.getElementById("dieColumn" + aKey).appendChild(textnode2);
 
             const typeColumn = document.createElement("div");
@@ -614,7 +669,7 @@ function insertJobElements(){
             typeColumn.className = aClass;
             // typeColumn.style = elementColour;
             document.getElementById(columnContainer.id).appendChild(typeColumn); 
-            let textnode3 = document.createTextNode(infoDict[aKey][1]);
+            let textnode3 = document.createTextNode(insertInfoDict[aKey][1]);
             document.getElementById("typeColumn" + aKey).appendChild(textnode3); 
 
             const diaColumn = document.createElement("div");
@@ -622,7 +677,7 @@ function insertJobElements(){
             diaColumn.className = aClass;
             // diaColumn.style = elementColour;
             document.getElementById(columnContainer.id).appendChild(diaColumn); 
-            let textnode4 = document.createTextNode(infoDict[aKey][2]);
+            let textnode4 = document.createTextNode(insertInfoDict[aKey][2]);
             document.getElementById("diaColumn" + aKey).appendChild(textnode4); 
 
             const custColumn = document.createElement("div");
@@ -630,7 +685,7 @@ function insertJobElements(){
             custColumn.className = aClass;
             // custColumn.style = elementColour;
             document.getElementById(columnContainer.id).appendChild(custColumn); 
-            let textnode5 = document.createTextNode(infoDict[aKey][3]);
+            let textnode5 = document.createTextNode(insertInfoDict[aKey][3]);
             document.getElementById("custColumn" + aKey).appendChild(textnode5); 
 
             const orderNoColumn = document.createElement("div");
@@ -662,7 +717,7 @@ function insertJobElements(){
             statusColumn.className = aClass;
             // statusColumn.style = elementColour;
             document.getElementById(columnContainer.id).appendChild(statusColumn); 
-            let textnode10 = document.createTextNode(infoDict[aKey][4]);
+            let textnode10 = document.createTextNode(insertInfoDict[aKey][4]);
             document.getElementById("statusColumn" + aKey).appendChild(textnode10); 
 
         const jobButtonContainer = document.createElement("div");
@@ -1128,7 +1183,8 @@ function sleep(ms) {
         await sleep(500);
     //   console.log(i);
     }
-    insertJobElements();
+    let defaultDict = createOngoingDict();
+    insertJobElements(defaultDict);
 }
 demo();
 
