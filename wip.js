@@ -593,6 +593,19 @@ function createFlatDict(){
     return insertDict;
 }
 
+//Create a dictionary with die no search results.
+function createDieSearchDict(anId){
+    insertDict = {};
+    console.log(anId);
+    let searchString = anId.toString();
+    for(let key in infoDict){
+        if(infoDict[key][0].includes(anId)){
+            insertDict[key] = infoDict[key];
+        }
+    }
+    return insertDict;
+}
+
 function insertJobElements(aDict){
     getDatabase();
 
@@ -915,6 +928,36 @@ function addHollowElements(){
     demo();
 }
 
+function dieSearch(anId){
+    getDatabase();
+    removeElementsFromDefined("inner-content-container");
+    /// ------------------------------------
+    /// Pause operation to allow Dictionaries
+    /// to be populated before the application
+    /// tries to render list of elements. 
+    /// ------------------------------------
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    
+    async function demo() {
+        // console.log('Taking a break...');
+        await sleep(500);
+        // console.log('Two seconds later, showing sleep in a loop...');
+    
+        // Sleep in loop
+        for (let i = 0; i < 2; i++) {
+        if (i === 3)
+            await sleep(500);
+        //   console.log(i);
+        }
+        console.log('here');
+        let ongoingDict = createDieSearchDict(anId);
+        insertJobElements(ongoingDict);
+    }
+    demo();
+}
+
 function expandGetClickedId(){
     expandJobSummary(this.id);
 }
@@ -1076,7 +1119,7 @@ function searchModal() {
             document.getElementById('searchContainer').appendChild(br.cloneNode());
             let actionButton = document.createElement('button');
             actionButton.appendChild(document.createTextNode('Submit'));
-            actionButton.addEventListener('click', function() {validateSearch(document.getElementById('searchInput').value)});
+            actionButton.addEventListener('click', function() {WoSearch(document.getElementById('searchInput').value)});
             document.getElementById('wo_feild_div').appendChild(actionButton);
 
             let dieno_header_div = document.createElement('div');
@@ -1118,7 +1161,7 @@ function searchModal() {
             document.getElementById('searchContainer').appendChild(br.cloneNode());
             let dieSearchActionButton = document.createElement('button');
             dieSearchActionButton.appendChild(document.createTextNode('Submit'));
-            dieSearchActionButton.addEventListener('click', function() {insertSearchedDieElements(document.getElementById('dieNoSearchInput').value)});
+            dieSearchActionButton.addEventListener('click', function() {dieSearch(document.getElementById('dieNoSearchInput').value)});
             document.getElementById('die_feild_div').appendChild(dieSearchActionButton);
 
     let list_header_div = document.createElement('div');
