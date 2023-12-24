@@ -306,6 +306,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
+    align-items: center;
 }
 
 .columnContainer {
@@ -391,6 +392,60 @@
     font-family: sans-serif;
 }
 
+/* ---------------------------------- */
+/* ---------------------------------- */
+/* Style for expanded job summary     */
+/* ---------------------------------- */
+/* ---------------------------------- */
+
+.expandInnerContainer {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.progressBarContainer {
+    width: 25%;
+    height: 100%;
+    margin-right: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: pink;
+}
+
+.compStatusContainer {
+    width: 60%;
+    height: 100%;
+    margin-right: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: pink;
+}
+
+.openDrawingContainer {
+    width: 15%;
+    height: 100%;
+    margin-right: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: pink;
+}
+
+/* ---------------------------------- */
+/* ---------------------------------- */
+/* End of for expanded job summary    */
+/* ---------------------------------- */
+/* ---------------------------------- */
 
 /* ---------------------------------- */
 /* ---------------------------------- */

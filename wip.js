@@ -1008,7 +1008,71 @@ function expandJobSummary(anId){
         openIcon.src = 'img/share.png';
         document.getElementById("openButton" + anId).appendChild(openIcon);
         //<a href="https://www.flaticon.com/free-icons/export" title="export icons">Export icons created by Amazona Adorada - Flaticon</a>
-    
+
+    const expandInnerContainer = document.createElement("div");
+    expandInnerContainer.id = "expandInnerContainer" + anId;
+    expandInnerContainer.className = "expandInnerContainer";
+    expandDiv2.appendChild(expandInnerContainer);
+
+    const progressBarContainer = document.createElement("div");
+    progressBarContainer.id = "progressBarContainer" + anId;
+    progressBarContainer.className = "progressBarContainer";
+    expandInnerContainer.appendChild(progressBarContainer);
+
+    const compStatusContainer = document.createElement("div");
+    compStatusContainer.id = "compStatusContainer" + anId;
+    compStatusContainer.className = "compStatusContainer";
+    expandInnerContainer.appendChild(compStatusContainer);
+
+    if(true){ //part
+        const partStatusContainer = document.createElement("div");
+        partStatusContainer.id = "partStatusContainer" + anId;
+        partStatusContainer.className = "StatusContainer";
+        expandInnerContainer.appendChild(partStatusContainer);
+    }
+
+    if(true){ //lip
+        const lipStatusContainer = document.createElement("div");
+        lipStatusContainer.id = "lipStatusContainer" + anId;
+        lipStatusContainer.className = "StatusContainer";
+        expandInnerContainer.appendChild(lipStatusContainer);
+    }
+
+    if(true){ //mand
+        const mandStatusContainer = document.createElement("div");
+        mandStatusContainer.id = "mandStatusContainer" + anId;
+        mandStatusContainer.className = "StatusContainer";
+        expandInnerContainer.appendChild(mandStatusContainer);
+    }
+
+    if(true){ //die
+        const dieStatusContainer = document.createElement("div");
+        dieStatusContainer.id = "dieStatusContainer" + anId;
+        dieStatusContainer.className = "StatusContainer";
+        expandInnerContainer.appendChild(dieStatusContainer);
+    }
+
+    if(true){ //backer
+        const backerStatusContainer = document.createElement("div");
+        backerStatusContainer.id = "backerStatusContainer" + anId;
+        backerStatusContainer.className = "StatusContainer";
+        expandInnerContainer.appendChild(backerStatusContainer);
+    }
+
+    if(true){ //bolster
+        const bolStatusContainer = document.createElement("div");
+        bolStatusContainer.id = "bolStatusContainer" + anId;
+        bolStatusContainer.className = "StatusContainer";
+        expandInnerContainer.appendChild(bolStatusContainer);
+    }
+
+    const openDrawingContainer = document.createElement("div");
+    openDrawingContainer.id = "openDrawingContainer" + anId;
+    openDrawingContainer.className = "openDrawingContainer";
+    expandInnerContainer.appendChild(openDrawingContainer);
+
+    //<a href="https://www.flaticon.com/free-icons/sketch" title="sketch icons">Sketch icons created by Freepik - Flaticon</a>
+
     const contractId = document.getElementById("collapseButton" + anId);
     contractId.addEventListener('click', contractGetClickedId);
 
@@ -1029,6 +1093,8 @@ function contractJobSummary(anId){
 
     const el = document.getElementById("jobButtonContainer"+anId);
     while(el.firstChild) el.removeChild(el.firstChild);
+
+    removeElementsFromDefined("hiddenElementsContainer"+anId);
 
     const expandButton = document.createElement("div");
     expandButton.id = "expandButton" + anId;
