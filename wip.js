@@ -1019,6 +1019,31 @@ function expandJobSummary(anId){
     progressBarContainer.className = "progressBarContainer";
     expandInnerContainer.appendChild(progressBarContainer);
 
+        const progressBarInnerContainer = document.createElement("div");
+        progressBarInnerContainer.id = "progressBarInnerContainer" + anId;
+        progressBarInnerContainer.className = "progressBarInnerContainer";
+        progressBarContainer.appendChild(progressBarInnerContainer);
+
+            const progressBar = document.createElement("div");
+            progressBar.id = "progressBar" + anId;
+            progressBar.className = "progressBar";
+            progressBarInnerContainer.appendChild(progressBar);
+
+            const progressBarFiller = document.createElement("div");
+            progressBarFiller.id = "progressBarFiller" + anId;
+            progressBarFiller.className = "progressBarFiller";
+            progressBar.appendChild(progressBarFiller);
+
+        const progressBarLabelContainer = document.createElement("div");
+        progressBarLabelContainer.id = "progressBarLabelContainer" + anId;
+        progressBarLabelContainer.className = "progressBarLabelContainer";
+        progressBarContainer.appendChild(progressBarLabelContainer);
+
+            const progressBarInnerLabelContainer = document.createElement("div");
+            progressBarInnerLabelContainer.id = "progressBarInnerLabelContainer" + anId;
+            progressBarInnerLabelContainer.className = "progressBarInnerLabelContainer";
+            progressBarContainer.appendChild(progressBarInnerLabelContainer);
+
     const compStatusContainer = document.createElement("div");
     compStatusContainer.id = "compStatusContainer" + anId;
     compStatusContainer.className = "compStatusContainer";
