@@ -1074,6 +1074,15 @@ function expandJobSummary(anId){
 
                 const partString = document.createTextNode("Part Location:");
                 document.getElementById('partStatusLabelContainer'+anId).appendChild(partString);
+
+            const partStatus = document.createElement("div");
+            partStatus.id = "partStatus" + anId;
+            partStatus.className = "Status";
+            partStatusContainer.appendChild(partStatus);
+
+                const partStat = getPartStatus(anId);
+                const partStatString = document.createTextNode(partStat);
+                document.getElementById('partStatus'+anId).appendChild(partStatString);
     }
 
     if(true){ //lip
@@ -1089,6 +1098,15 @@ function expandJobSummary(anId){
 
                 const lipString = document.createTextNode("Lip Location:");
                 document.getElementById('lipStatusLabelContainer'+anId).appendChild(lipString);
+
+            const lipStatus = document.createElement("div");
+            lipStatus.id = "lipStatus" + anId;
+            lipStatus.className = "Status";
+            lipStatusContainer.appendChild(lipStatus);
+
+                const lipStat = getLipStatus(anId);
+                const lipStatString = document.createTextNode(lipStat);
+                document.getElementById('lipStatus'+anId).appendChild(lipStatString);
     }
 
     if(true){ //mand
@@ -1104,6 +1122,15 @@ function expandJobSummary(anId){
 
                 const mandString = document.createTextNode("Mandrel Location:");
                 document.getElementById('mandStatusLabelContainer'+anId).appendChild(mandString);
+
+            const mandStatus = document.createElement("div");
+            mandStatus.id = "mandStatus" + anId;
+            mandStatus.className = "Status";
+            mandStatusContainer.appendChild(mandStatus);
+
+                const mandStat = getMandStatus(anId);
+                const mandStatString = document.createTextNode(mandStat);
+                document.getElementById('mandStatus'+anId).appendChild(mandStatString);
     }
 
     if(true){ //die
@@ -1119,6 +1146,15 @@ function expandJobSummary(anId){
 
                 const dieString = document.createTextNode("Die Location:");
                 document.getElementById('dieStatusLabelContainer'+anId).appendChild(dieString);
+
+            const dieStatus = document.createElement("div");
+            dieStatus.id = "dieStatus" + anId;
+            dieStatus.className = "Status";
+            dieStatusContainer.appendChild(dieStatus);
+
+                const dieStat = getDieStatus(anId);
+                const dieStatString = document.createTextNode(dieStat);
+                document.getElementById('dieStatus'+anId).appendChild(dieStatString);
     }
 
     if(true){ //backer
@@ -1134,6 +1170,15 @@ function expandJobSummary(anId){
 
                 const backerString = document.createTextNode("Backer Location:");
                 document.getElementById('backerStatusLabelContainer'+anId).appendChild(backerString);
+
+            const backerStatus = document.createElement("div");
+            backerStatus.id = "backerStatus" + anId;
+            backerStatus.className = "Status";
+            backerStatusContainer.appendChild(backerStatus);
+
+                const backerStat = getBackerStatus(anId);
+                const backerStatString = document.createTextNode(backerStat);
+                document.getElementById('backerStatus'+anId).appendChild(backerStatString);
     }
 
     if(true){ //bolster
@@ -1149,6 +1194,15 @@ function expandJobSummary(anId){
 
                 const bolString = document.createTextNode("Bolster Location:");
                 document.getElementById('bolStatusLabelContainer'+anId).appendChild(bolString);
+
+            const bolStatus = document.createElement("div");
+            bolStatus.id = "bolStatus" + anId;
+            bolStatus.className = "Status";
+            bolStatusContainer.appendChild(bolStatus);
+
+                const bolStat = getBolStatus(anId);
+                const bolStatString = document.createTextNode(bolStat);
+                document.getElementById('bolStatus'+anId).appendChild(bolStatString);
     }
 
     const openDrawingContainer = document.createElement("div");
@@ -1185,6 +1239,30 @@ function expandJobSummary(anId){
 
     const openId = document.getElementById("openButton" + anId);
     openId.addEventListener('click', openGetClickedId);
+}
+
+function getPartStatus(anId) {
+    return "nill";
+}
+
+function getLipStatus(anId) {
+    return "nill";
+}
+
+function getMandStatus(anId) {
+    return "nill";
+}
+
+function getDieStatus(anId) {
+    return "nill";
+}
+
+function getBackerStatus(anId) {
+    return "nill";
+}
+
+function getBolStatus(anId) {
+    return "nill";
 }
 
 function contractJobSummary(anId){
