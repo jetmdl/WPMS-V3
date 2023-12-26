@@ -970,6 +970,10 @@ function openGetClickedId(){
     createJobTable(this.id);
 }
 
+function calculateJobProgress(anId){
+    return "80%";
+}
+
 function expandJobSummary(anId){
     anId = anId.replace("expandButton", "");
 
@@ -1019,6 +1023,20 @@ function expandJobSummary(anId){
     progressBarContainer.className = "progressBarContainer";
     expandInnerContainer.appendChild(progressBarContainer);
 
+        const progressBarLabelContainer = document.createElement("div");
+        progressBarLabelContainer.id = "progressBarLabelContainer" + anId;
+        progressBarLabelContainer.className = "progressBarLabelContainer";
+        progressBarContainer.appendChild(progressBarLabelContainer);
+
+            const progressBarInnerLabelContainer = document.createElement("div");
+            progressBarInnerLabelContainer.id = "progressBarInnerLabelContainer" + anId;
+            progressBarInnerLabelContainer.className = "progressBarInnerLabelContainer";
+            progressBarLabelContainer.appendChild(progressBarInnerLabelContainer);
+
+                let compString = "Job Progress"; 
+                let compStringDiv = document.createTextNode(compString);
+                document.getElementById("progressBarInnerLabelContainer" + anId).appendChild(compStringDiv);
+
         const progressBarInnerContainer = document.createElement("div");
         progressBarInnerContainer.id = "progressBarInnerContainer" + anId;
         progressBarInnerContainer.className = "progressBarInnerContainer";
@@ -1034,15 +1052,9 @@ function expandJobSummary(anId){
             progressBarFiller.className = "progressBarFiller";
             progressBar.appendChild(progressBarFiller);
 
-        const progressBarLabelContainer = document.createElement("div");
-        progressBarLabelContainer.id = "progressBarLabelContainer" + anId;
-        progressBarLabelContainer.className = "progressBarLabelContainer";
-        progressBarContainer.appendChild(progressBarLabelContainer);
-
-            const progressBarInnerLabelContainer = document.createElement("div");
-            progressBarInnerLabelContainer.id = "progressBarInnerLabelContainer" + anId;
-            progressBarInnerLabelContainer.className = "progressBarInnerLabelContainer";
-            progressBarContainer.appendChild(progressBarInnerLabelContainer);
+                let progString = calculateJobProgress(anId); 
+                let progStringDiv = document.createTextNode(progString);
+                document.getElementById('progressBarFiller'+anId).appendChild(progStringDiv);
 
     const compStatusContainer = document.createElement("div");
     compStatusContainer.id = "compStatusContainer" + anId;
