@@ -1065,42 +1065,90 @@ function expandJobSummary(anId){
         const partStatusContainer = document.createElement("div");
         partStatusContainer.id = "partStatusContainer" + anId;
         partStatusContainer.className = "StatusContainer";
-        expandInnerContainer.appendChild(partStatusContainer);
+        compStatusContainer.appendChild(partStatusContainer);
+
+            const partStatusLabelContainer = document.createElement("div");
+            partStatusLabelContainer.id = "partStatusLabelContainer" + anId;
+            partStatusLabelContainer.className = "StatusLabelContainer";
+            partStatusContainer.appendChild(partStatusLabelContainer);
+
+                const partString = document.createTextNode("Part Location:");
+                document.getElementById('partStatusLabelContainer'+anId).appendChild(partString);
     }
 
     if(true){ //lip
         const lipStatusContainer = document.createElement("div");
         lipStatusContainer.id = "lipStatusContainer" + anId;
         lipStatusContainer.className = "StatusContainer";
-        expandInnerContainer.appendChild(lipStatusContainer);
+        compStatusContainer.appendChild(lipStatusContainer);
+
+            const lipStatusLabelContainer = document.createElement("div");
+            lipStatusLabelContainer.id = "lipStatusLabelContainer" + anId;
+            lipStatusLabelContainer.className = "StatusLabelContainer";
+            lipStatusContainer.appendChild(lipStatusLabelContainer);
+
+                const lipString = document.createTextNode("Lip Location:");
+                document.getElementById('lipStatusLabelContainer'+anId).appendChild(lipString);
     }
 
     if(true){ //mand
         const mandStatusContainer = document.createElement("div");
         mandStatusContainer.id = "mandStatusContainer" + anId;
         mandStatusContainer.className = "StatusContainer";
-        expandInnerContainer.appendChild(mandStatusContainer);
+        compStatusContainer.appendChild(mandStatusContainer);
+
+            const mandStatusLabelContainer = document.createElement("div");
+            mandStatusLabelContainer.id = "mandStatusLabelContainer" + anId;
+            mandStatusLabelContainer.className = "StatusLabelContainer";
+            mandStatusContainer.appendChild(mandStatusLabelContainer);
+
+                const mandString = document.createTextNode("Mandrel Location:");
+                document.getElementById('mandStatusLabelContainer'+anId).appendChild(mandString);
     }
 
     if(true){ //die
         const dieStatusContainer = document.createElement("div");
         dieStatusContainer.id = "dieStatusContainer" + anId;
         dieStatusContainer.className = "StatusContainer";
-        expandInnerContainer.appendChild(dieStatusContainer);
+        compStatusContainer.appendChild(dieStatusContainer);
+
+            const dieStatusLabelContainer = document.createElement("div");
+            dieStatusLabelContainer.id = "dieStatusLabelContainer" + anId;
+            dieStatusLabelContainer.className = "StatusLabelContainer";
+            dieStatusContainer.appendChild(dieStatusLabelContainer);
+
+                const dieString = document.createTextNode("Die Location:");
+                document.getElementById('dieStatusLabelContainer'+anId).appendChild(dieString);
     }
 
     if(true){ //backer
         const backerStatusContainer = document.createElement("div");
         backerStatusContainer.id = "backerStatusContainer" + anId;
         backerStatusContainer.className = "StatusContainer";
-        expandInnerContainer.appendChild(backerStatusContainer);
+        compStatusContainer.appendChild(backerStatusContainer);
+
+            const backerStatusLabelContainer = document.createElement("div");
+            backerStatusLabelContainer.id = "backerStatusLabelContainer" + anId;
+            backerStatusLabelContainer.className = "StatusLabelContainer";
+            backerStatusContainer.appendChild(backerStatusLabelContainer);
+
+                const backerString = document.createTextNode("Backer Location:");
+                document.getElementById('backerStatusLabelContainer'+anId).appendChild(backerString);
     }
 
     if(true){ //bolster
         const bolStatusContainer = document.createElement("div");
         bolStatusContainer.id = "bolStatusContainer" + anId;
         bolStatusContainer.className = "StatusContainer";
-        expandInnerContainer.appendChild(bolStatusContainer);
+        compStatusContainer.appendChild(bolStatusContainer);
+
+            const bolStatusLabelContainer = document.createElement("div");
+            bolStatusLabelContainer.id = "bolStatusLabelContainer" + anId;
+            bolStatusLabelContainer.className = "StatusLabelContainer";
+            bolStatusContainer.appendChild(bolStatusLabelContainer);
+
+                const bolString = document.createTextNode("Bolster Location:");
+                document.getElementById('bolStatusLabelContainer'+anId).appendChild(bolString);
     }
 
     const openDrawingContainer = document.createElement("div");
@@ -1108,7 +1156,29 @@ function expandJobSummary(anId){
     openDrawingContainer.className = "openDrawingContainer";
     expandInnerContainer.appendChild(openDrawingContainer);
 
-    //<a href="https://www.flaticon.com/free-icons/sketch" title="sketch icons">Sketch icons created by Freepik - Flaticon</a>
+        const modJobContainer = document.createElement("div");
+        modJobContainer.id = "modJobContainer" + anId;
+        modJobContainer.className = "modJobContainer";
+        openDrawingContainer.appendChild(modJobContainer);
+
+            const modJobIcon = document.createElement("img");
+            modJobIcon.setAttribute("height", "45");
+            modJobIcon.setAttribute("width", "45");
+            modJobIcon.src = 'img/sketch.png';
+            document.getElementById("modJobContainer" + anId).appendChild(modJobIcon);
+            //<a href="https://www.flaticon.com/free-icons/sketch" title="sketch icons">Sketch icons created by Freepik - Flaticon</a>
+
+        const openDrawingInnerContainer = document.createElement("div");
+        openDrawingInnerContainer.id = "openDrawingInnerContainer" + anId;
+        openDrawingInnerContainer.className = "openDrawingInnerContainer";
+        openDrawingContainer.appendChild(openDrawingInnerContainer);
+
+            const openDrawingIcon = document.createElement("img");
+            openDrawingIcon.setAttribute("height", "45");
+            openDrawingIcon.setAttribute("width", "45");
+            openDrawingIcon.src = 'img/adjust.png';
+            document.getElementById("openDrawingInnerContainer" + anId).appendChild(openDrawingIcon);
+            //<a href="https://www.flaticon.com/free-icons/modify" title="modify icons">Modify icons created by Witdhawaty - Flaticon</a>
 
     const contractId = document.getElementById("collapseButton" + anId);
     contractId.addEventListener('click', contractGetClickedId);
