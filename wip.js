@@ -1,3 +1,6 @@
+// import { sayHi } from "./dictionary";
+
+sayHi();
 /// repo location: /opt/homebrew/var/www
 
 /// ------------------------------------
