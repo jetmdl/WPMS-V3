@@ -1,6 +1,6 @@
 // import { sayHi } from "./dictionary";
 
-let myDict = createPartDict();
+let myDict = createInfoDict();
 console.log(myDict);
 /// repo location: /opt/homebrew/var/www
 
