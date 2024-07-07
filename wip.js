@@ -1,7 +1,3 @@
-// import { sayHi } from "./dictionary";
-
-let myDict = createInfoDict();
-console.log(myDict);
 /// repo location: /opt/homebrew/var/www
 
 /// ------------------------------------
@@ -50,6 +46,25 @@ let insertDict = {};
 /// Arrays and Dictionaries 
 /// ------------------------------------
 function getDatabase(){
+    infoDict = createInfoDict();
+    partDict = createPartDict();
+    lipDict = createLipDict();
+    mandDict = createMandDict();
+    dieDict = createDieDict();
+    backerDict = createBackerDict();
+    bolDict = createBolDict();
+    nextDict = createNextDict();
+    lipSoftDict = createLipSoftDict();
+    mandSoftDict = createMandSoftDict();
+    dieSoftDict = createDieSoftDict();
+    backerSoftDict = createBackerSoftDict();
+    bolSoftDict = createBolSoftDict();
+    lipHardDict = createLipHardDict();
+    mandHardDict = createMandHardDict();
+    dieHardDict = createDieHardDict();
+}
+
+function OldgetDatabase(){
     infoxhp = new XMLHttpRequest();
     infoxhp.open('GET', 'get_job_table.php', true);
     infoxhp.send();
