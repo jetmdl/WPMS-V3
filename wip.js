@@ -729,24 +729,32 @@ function insertJobElements(aDict){
             orderNoColumn.className = aClass;
             // orderNoColumn.style = elementColour;
             document.getElementById(columnContainer.id).appendChild(orderNoColumn); 
+            let textnode6 = document.createTextNode(insertInfoDict[aKey][13]);
+            document.getElementById("orderNoColumn" + aKey).appendChild(textnode6); 
 
             const startDateColumn = document.createElement("div");
             startDateColumn.id = "startDateColumn" + aKey;
             startDateColumn.className = aClass;
             // startDateColumn.style = elementColour;
             document.getElementById(columnContainer.id).appendChild(startDateColumn); 
+            let textnode7 = document.createTextNode(insertInfoDict[aKey][14]);
+            document.getElementById("startDateColumn" + aKey).appendChild(textnode7); 
 
             const finishDateColumn = document.createElement("div");
             finishDateColumn.id = "finishDateColumn" + aKey;
             finishDateColumn.className = aClass;
             // finishDateColumn.style = elementColour;
             document.getElementById(columnContainer.id).appendChild(finishDateColumn); 
+            let textnode8 = document.createTextNode(insertInfoDict[aKey][15]);
+            document.getElementById("finishDateColumn" + aKey).appendChild(textnode8); 
 
             const onTimeDateColumn = document.createElement("div");
             onTimeDateColumn.id = "onTimeDateColumn" + aKey;
             onTimeDateColumn.className = aClass;
             // onTimeDateColumn.style = elementColour;
             document.getElementById(columnContainer.id).appendChild(onTimeDateColumn); 
+            let textnode9 = document.createTextNode(insertInfoDict[aKey][16]);
+            document.getElementById("onTimeDateColumn" + aKey).appendChild(textnode9); 
 
             const statusColumn = document.createElement("div");
             statusColumn.id = "statusColumn" + aKey;
